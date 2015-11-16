@@ -1,26 +1,34 @@
 #!/usr/bin/env bash
+# Note - Pi blaster needs this script ran for auto start at boot
+# /etc/init.d/pi-blaster.boot.sh start
+# 4, 17, 22
 
-while [ true ];
+AMOUNT=0
+DIRECTION="up"
+while [ "$AMOUNT" -lt 10 ];
 do
-  echo "25=0" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.01" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.015" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.016" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.017" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.018" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.02" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.04" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.06" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.08" > /dev/pi-blaster
-  sleep 0.4
-  echo "25=0.01" > /dev/pi-blaster
+
+sleep 0.0445
+
+echo "4=0.1$AMOUNT" > /dev/pi-blaster
+echo "17=0.1$AMOUNT" > /dev/pi-blaster
+echo "22=0.1$AMOUNT" > /dev/pi-blaster
+
+echo "18=0.1$AMOUNT" > /dev/pi-blaster
+sleep 0.0445
+
+if [ "$AMOUNT" -eq 9 ] && [ "$DIRECTION" == "up" ] ;then
+  DIRECTION="down"
+fi
+
+if [ "$AMOUNT" -eq 0 ] && [ "$DIRECTION" == "down" ] ;then
+  DIRECTION="up"
+fi
+
+if [ "$DIRECTION" == "up"  ];then
+  AMOUNT=$((AMOUNT+1))
+else
+  AMOUNT=$((AMOUNT-1))
+fi
+
 done

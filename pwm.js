@@ -17,7 +17,7 @@ var direction = "up";
 
 while( start <= 1023 ){
         wpi.pwmWrite(pin, start);
-        usleep(450);
+        usleep(1000);
         
         switch( direction ){
             case "up":
