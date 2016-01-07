@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node --harmony_arrow_functions app.js",
+    "start": "node --harmony_arrow_functions node/app.js",
     "gpio": "node --harmony_arrow_functions gpio.js",
     "service-start": "npm install",
     "service-reload": "",
