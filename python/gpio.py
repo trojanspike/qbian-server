@@ -1,19 +1,17 @@
-#!/usr/bin/env python
-
-import RPi.GPIO as g
+import RPi.GPIO as GPIO
 from time import sleep
 
-g.setmode(g.BCM)
+GPIO.setmode(g.BCM)
 
 try:
 
-  g.setup(17, g.OUT) # GPIO17 
+  GPIO.setup(17, GPIO.OUT) # GPIO17 
   while True:
-    g.output(17, g.HIGH)
-    sleep(0.5)
-    g.output(17, g.LOW)
-    sleep(0.5)
+    GPIO.output(17, GPIO.HIGH)
+    sleep(1.5)
+    GPIO.output(17, GPIO.LOW)
+    sleep(1.5)
 
 except KeyboardInterrupt:
-  g.cleanup();
+  GPIO.cleanup();
 
