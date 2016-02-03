@@ -1,0 +1,24 @@
+{
+  "name": "qbianserver",
+  "version": "0.0.0",
+  "description": "",
+  "main": "null",
+  "dependencies": {
+    "async": "^1.4.2",
+    "express": "^4.13.3",
+    "onoff": "^1.0.2",
+    "pi-blaster.js": "^0.1.1",
+    "pi-gpio": "0.0.8",
+    "serialport": "^2.0.*",
+    "sleep": "^3.0.0",
+    "wiring-pi": "^2.1.0"
+  },
+  "scripts": {
+    "start":"node app.js",
+    "pwm":"node pwm.js",
+    "gpio":"node gpio",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

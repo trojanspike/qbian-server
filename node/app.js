@@ -72,6 +72,7 @@ app.use(function(err, req, res, next){
   });
 });
 
-app.listen(1374);
+var PORT=process.env.PORT || 1374;
+app.listen( PORT );
 
-console.log("Listening on port 1374")
+console.log("Listening on port "+PORT)
